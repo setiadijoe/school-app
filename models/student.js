@@ -1,14 +1,12 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Teacher = sequelize.define('Teacher', {
+  var Student = sequelize.define('Student', {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE,
     email: 
     {
       type: DataTypes.STRING,
-      validate:{isEmail: true}
+      validate: { isEmail: true }
     }
   }, {
     classMethods: {
@@ -17,5 +15,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Teacher;
+  return Student;
 };
