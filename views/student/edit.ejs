@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Teach</title>
+    <title>Edit Student</title>
 </head>
+
 <body>
-    <h2>Edit Teacher's Data</h2>
-    <h4 style="color: red"><%=sendError%></h4>
-    <a href="/teacher"><button>Back to Teacher</button></a>
-    <form action="/teacher/edit/<%=data.id%>" method="post">
+    <h2>Edit Student's Data</h2>
+        <h4 style="color: red">
+            <%=sendError%>
+        </h4>
+        <a href="/student"><button>Back to Student</button></a>
+    <form action="/student/edit/<%=data.id%>" method="post">
         <p>
             <input type="text" name="first_name" value="<%=data.first_name%>">
         </p>
         <p>
-            <input type="text" name="last_name"  value="<%=data.last_name%>">
+            <input type="text" name="last_name" value="<%=data.last_name%>">
         </p>
         <p>
-            <input type="text" name="email"  value="<%=data.email%>">
+            <input type="text" name="email" value="<%=data.email%>">
         </p>
         <p>
             <input type="submit" value="EDIT">

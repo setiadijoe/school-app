@@ -6,14 +6,15 @@ module.exports = function(sequelize, DataTypes) {
     email: 
     {
       type: DataTypes.STRING,
-      validate: { isEmail: true }
-    }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
+      validate: 
+      { 
+        isEmail: true,
+        isUnique: true 
       }
     }
   });
+  Student.prototype.getFullName = function () {
+    return this.first_name+' '+this.last_name
+  }
   return Student;
 };

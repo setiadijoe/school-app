@@ -7,7 +7,7 @@
     <title>Teacher</title>
 </head>
 <body>
-    <h1>Teacher Data</h1>
+    <h1 align="center">Teachers Data</h1>
     Back To<a href="/"><button>HOME</button></a>
     <table border="1">
         <thead>
@@ -30,7 +30,7 @@
         </tbody>
         <%})%>
     </table>
-    <h4><%=sendError%></h4>
+    <h4 style="color: red"><%=sendError%></h4>
     <form action="/teacher" method="post">
         <p>
             <input type="text" name="first_name" placeholder="FIRST NAME">

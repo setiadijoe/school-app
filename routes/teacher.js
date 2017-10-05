@@ -4,7 +4,6 @@ const router = express.Router()
 
 router.get('/', (req, res)=>{
     let errorMessage = ''
-    // console.log(req.query);
     if (req.query.hasOwnProperty('error')) {
         if (req.query.error === 'Validation error: Validation isEmail on email failed') {
             errorMessage = 'Harap masukkan email yang benar'
@@ -38,10 +37,16 @@ router.post('/', (req, res)=>{
 })
 
 router.get('/edit/:id', (req, res)=>{
+    let errorMessage = ''
+    if (req.query.hasOwnProperty('error')) {
+        if (req.query.error === 'Validation error: Validation isEmail on email failed') {
+            errorMessage = 'Harap masukkan email yang benar'
+        }
+    }
     model.Teacher.findById(req.params.id)
     .then(teacher=>{
         // res.send(teacher)
-        res.render('teacher/edit', {data: teacher})
+        res.render('teacher/edit', {data: teacher, sendError:errorMessage})
     })
     .catch(err=>{
         res.send(err)
@@ -62,7 +67,8 @@ router.post('/edit/:id', (req, res)=>{
         res.redirect('/teacher')
     ])
     .catch(err=>{
-        res.send(err)
+        res.redirect(`/teacher/edit/${req.params.id}?error=${err.message}`)
+        // res.send(err.message)
     })
 })
 

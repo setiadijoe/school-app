@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student</title>
+</head>
+
+<body>
+    <h1 align="center">
+        Students Data
+    </h1>
+    <h5 style="color: blue" align="center"><a href="/student/add">Add A Student</a></h5>
+    Back To<a href="/"><button>HOME</button></a>
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>FULL NAME</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>EMAIL</th>
+            <th>ACTION</th>
+        </thead>
+        <%data.forEach( r =>{%>
+            <tbody>
+                <td>
+                    <%=r.id%>
+                </td>
+                <td>
+                    <%=r.getFullName()%>
+                </td>
+                <td>
+                    <%=r.first_name%>
+                </td>
+                <td>
+                    <%=r.last_name%>
+                </td>
+                <td>
+                    <%=r.email%>
+                </td>
+                <td>
+                    <a href="/student/edit/<%=r.id%>">EDIT</a> ||
+                    <a href="/student/delete/<%=r.id%>" onclick="return confirm('Do wanna delete this student?')">DELETE</a>              
+                </td>
+            </tbody>
+            <%})%>
+    </table>
+</body>
+
+</html>
