@@ -21,6 +21,7 @@
             <th>FIRST NAME</th>
             <th>LAST NAME</th>
             <th>EMAIL</th>
+            <th>OPTIONS</th>
             <th>ACTION</th>
         </thead>
         <%data.forEach( r =>{%>
@@ -39,6 +40,9 @@
                 </td>
                 <td>
                     <%=r.email%>
+                </td>
+                <td>
+                    <a href="/student/<%=r.id%>/addsubject">ADD SUBJECTS</a>
                 </td>
                 <td>
                     <a href="/student/edit/<%=r.id%>">EDIT</a> ||

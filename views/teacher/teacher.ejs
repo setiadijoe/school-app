@@ -8,21 +8,26 @@
 </head>
 <body>
     <h1 align="center">Teachers Data</h1>
+    <h5 style="color: blue" align="center"><a href="/teacher/add">Add A Teacher</a></h5>
     Back To<a href="/"><button>HOME</button></a>
     <table border="1">
         <thead>
             <th>ID</th>
+            <th>FULL NAME</th>
             <th>FIRST NAME</th>
             <th>LAST NAME</th>
             <th>EMAIL</th>
+            <th>SUBJECT</th>
             <th>ACTION</th>
         </thead>
         <%data.forEach( r =>{%>
         <tbody>
             <td><%=r.id%></td>
+            <td><%=r.getFullName()%></td>
             <td><%=r.first_name%></td>
             <td><%=r.last_name%></td>
             <td><%=r.email%></td>
+            <td><%=r.dataValues['subject_name']%></td>
             <td>
                 <a href="/teacher/edit/<%=r.id%>">EDIT</a> ||
                 <a href="/teacher/delete/<%=r.id%>">DELETE</a>
@@ -30,20 +35,5 @@
         </tbody>
         <%})%>
     </table>
-    <h4 style="color: red"><%=sendError%></h4>
-    <form action="/teacher" method="post">
-        <p>
-            <input type="text" name="first_name" placeholder="FIRST NAME">
-        </p>
-        <p>
-            <input type="text" name="last_name" placeholder="LAST NAME">
-        </p>
-        <p>
-            <input type="text" name="email" placeholder="EMAIL">
-        </p>
-        <p>
-            <input type="submit" value="SUBMIT">
-        </p>
-    </form>
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Subject</title>
+</head>
+
+<body>
+    <h1 align="center">Subject Data</h1>
+    Back To<a href="/"><button>HOME</button></a>
+    <table border="1">
+        <thead>
+            <th>ID</th>
+            <th>SUBJECT NAME</th>
+            <th>TEACHERS</th>
+            <th>ACTION</th>
+        </thead>
+        <%data.forEach( r =>{%>
+            <tbody>
+                <td>
+                    <%=r.id%>
+                </td>
+                <td>
+                    <%=r.subject_name%>
+                </td>
+                <td>
+                    <%if (r.dataValues.fullname.length > 0) {%>
+                        <%r.dataValues.fullname.forEach((z,i=1)=>{%>
+                    <%=i+1+'.'+z+'\n'%>
+                            <%})%>
+                            <%}%>
+                </td>
+                <td>
+                    <a href="/subject/<%=r.id%>/enrolledstudents">Enrolled Students</a>
+                </td>
+            </tbody>
+            <%})%>
+    </table>
+</body>
+
+</html>

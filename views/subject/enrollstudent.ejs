@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2 align="center"><%=data.subject_name%></h2>
+    <a href="/subject">
+        <button>Back to Subject List</button>
+    </a>
+    <table border="1">
+        <thead>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Letter</th>
+        </thead>
+        <%data.Students.forEach(student =>{%>
+        <tbody>
+            <td>
+                <%=student.getFullName()%>
+            </td>
+            <td>
+                <%if (student.StudentSubject.score !== null) {%>
+                    <%=student.StudentSubject.score%>
+                <%} else {%>
+                    <a href="/subject/<%=student.StudentSubject.id%>/givescore">GIVE SCORE</a>
+                <%}%>
+            </td>
+            <td>
+                <%=student.getDataValue('score')%>
+            </td>
+        </tbody>
+        <%})%>
+    </table>
+</body>
+</html>

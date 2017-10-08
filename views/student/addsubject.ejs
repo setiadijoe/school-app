@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Subject</title>
+</head>
+
+<body>
+    <h2 align="center">Add Subject</h2>
+    <h4 style="color:rgb(255, 0, 0)">
+        
+    </h4>
+    <a href="/student">
+        <button>Back to Student</button>
+    </a>
+    <form action="/student/<%=data.id%>/addsubject" method="post">
+        <p>
+            <input type="text" name="first_name" value="<%=data.first_name%>">
+        </p>
+        <p>
+            <input type="text" name="last_name" value="<%=data.last_name%>">
+        </p>
+        <p>
+            <input type="text" name="email" value="<%=data.email%>">
+        </p>
+        <p>
+        <select name="SubjectId">
+            <% subs.forEach(row => { %>
+                <option value="<%=row.id%>">
+                    <%=row.subject_name%>
+                </option>
+                <% }) %>
+        </select>
+        </p>
+        <p>
+            <input type="submit" value="SUBMIT">
+        </p>
+    </form>
+</body>
+
+</html>

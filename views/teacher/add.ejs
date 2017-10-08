@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Teach</title>
+    <title>Add Teacher</title>
 </head>
+
 <body>
-    <h2>Edit Teacher's Data</h2>
-    <h4 style="color: red"><%=sendError%></h4>
+    <h2 align="center">Add Teacher</h2>
+    <h4 style="color:rgb(255, 0, 0)">
+        <%=sendError%>
+    </h4>
     <a href="/teacher"><button>Back to Teacher</button></a>
-    <form action="/teacher/edit/<%=data.id%>" method="post">
+    <form action="/teacher/add" method="post">
         <p>
-            <input type="text" name="first_name" value="<%=data.first_name%>">
+            <input type="text" name="first_name" placeholder="FIRST NAME">
         </p>
         <p>
-            <input type="text" name="last_name"  value="<%=data.last_name%>">
+            <input type="text" name="last_name" placeholder="LAST NAME">
         </p>
         <p>
-            <input type="text" name="email"  value="<%=data.email%>">
+            <input type="text" name="email" placeholder="EMAIL">
         </p>
         <p>
         <select name="SubjectId">
-          <% subs.forEach(row => { %>
+          <% data.forEach(row => { %>
           <option value="<%=row.id%>"><%=row.subject_name%></option>
           <% }) %>
         </select>
         </p>
         <p>
-            <input type="submit" value="EDIT">
+            <input type="submit" value="SUBMIT">
         </p>
     </form>
 </body>
+
 </html>
