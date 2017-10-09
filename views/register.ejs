@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include ./partial/head%>
+</head>
+
+<body>
+    <h2>Register Your Self </h2>
+    <form class="" action="/register" method="post">
+        Username<br>
+        <p>
+            <input type="text" name="username" placeholder="type username">
+        </p>
+        PASSWORD<br>
+        <p>
+            <input type="password" name="password" placeholder="type password">
+        </p>
+        ROLE<br>
+        <p>
+            <select name="role">
+                <option value="teacher">teacher</option>
+                <option value="academic">academic</option>
+                <option value="headmaster">headmaster</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="SUBMIT">
+        </p>
+    </form>
+    <br>
+    <br>
+    <h4 style="color: red">
+        <% if(error_reg === true) { %>
+            Username already exist
+            <% } %>
+    </h4>
+</body>
+
+</html>

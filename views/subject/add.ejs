@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ../partial/head%>
+</head>
+
+<body>
+    <h2 align="center">Add Subject</h2>
+    <a href="/subject">
+        <button>Back to Subject</button>
+    </a>
+    <form action="/subject/add" method="post">
+        <p>
+            <input type="text" name="subject_name" placeholder="SUBJECT NAME">
+        </p>
+        <p>
+            <input type="submit" value="SUBMIT">
+        </p>
+    </form>
+</body>
+
+</html>

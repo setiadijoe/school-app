@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<%- include ../partial/head%>
+</head>
+
+<body>
+    <h2 align="center">
+        <%=data.Subject.subject_name%>
+    </h2>
+    <a href="/subject">
+        <button>Back to Subject List</button>
+    </a>
+    <table border="1" align="center">
+        <thead>
+            <th>Name</th>
+            <th>Score</th>
+        </thead>
+            <tbody>
+                <td>
+                    <%=data.Student.getFullName()%>
+                </td>
+                <td>
+                    <form action="/subject/<%=data.id%>/givescore" method="post">
+                        <input type="number" name="score" placeholder="Input Score">
+                        <input type="submit" value="Add Score">
+                    </form>
+                </td>
+            </tbody>
+    </table>
+</body>
+
+</html>

@@ -18,8 +18,10 @@
   "homepage": "https://github.com/setiadijoe/school-app#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "crypto": "^1.0.1",
     "ejs": "^2.5.7",
     "express": "^4.16.1",
+    "express-session": "^1.15.6",
     "pg": "^7.3.0",
     "sequelize": "^4.13.5"
   }

@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<%- include ../partial/head%>
 </head>
 <body>
     <h2 align="center"><%=data.subject_name%></h2>
@@ -13,12 +10,14 @@
     </a>
     <table border="1">
         <thead>
+            <th>No</th>
             <th>Name</th>
             <th>Score</th>
             <th>Letter</th>
         </thead>
-        <%data.Students.forEach(student =>{%>
+        <%data.Students.forEach((student,index) =>{%>
         <tbody>
+            <td><%= index+=1%></td>
             <td>
                 <%=student.getFullName()%>
             </td>

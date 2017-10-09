@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">ARTS SCHOOL</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="/">Home</a>
+            </li>
+            <%if (session.user.role === 'headmaster') { %>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">TEACHER
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/teacher">Teacher List</a>
+                    </li>
+                    <li>
+                        <a href="/teacher/add">Add Teacher</a>
+                    </li>
+                </ul>
+            </li>
+            <%}%>
+            <%if (session.user.role !== 'teacher') {%>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">SUBJECT
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/subject">Subject Lists</a>
+                    </li>
+                    <li>
+                        <a href="/subject/add">Add Subject</a>
+                    </li>
+                </ul>
+            </li>
+            <%}%>
+            
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">STUDENT
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/student">Student Lists</a>
+                    </li>
+                    <li>
+                        <a href="/student/add">Add Student</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <li>
+                    <a href="/logout">LOGOUT</a>
+                </li>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -12,7 +12,6 @@ module.exports = function(sequelize, DataTypes) {
       validate:{
         isEmail: true,
         isUnique: function (value, next) {
-          console.log("======================masuk ke cek unik:", this._modelOptions.whereCollection.id);
           Teacher.find({
             where: {
               email: value, id: { [sequelize.Op.notIn]: [parseInt(this._modelOptions.whereCollection.id)] }
@@ -20,12 +19,13 @@ module.exports = function(sequelize, DataTypes) {
             attributes: ['id']
           })
             .then(user => {
-              // console.log("User:", user);
+              console.log("User:", user._modelOptions.whereCollection.id);
 
               if (user) {
                 // We found a user with this email address.
                 // Pass the error to the next method.
                 let error = {
+                  args: true,
                   message: 'Email already in used'
                 }
                 return next(error);

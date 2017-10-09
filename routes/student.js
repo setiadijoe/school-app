@@ -2,11 +2,19 @@ const express = require('express')
 const model = require('../models')
 const router = express.Router()
 
+router.use((req, res, next) => {
+    if (req.session.hasLogin) {
+        next()
+    } else {
+        res.redirect('/login')
+    }
+})
+
 router.get('/', (req, res)=>{
     model.Student.findAll({ order: [['id', 'ASC']]})
     .then(student=>{
         // res.send(student[0].getFullName())
-        res.render('student/student', {data:student})
+        res.render('student/student', {data:student, pageTitle: 'STUDENT PAGE', session:req.session})
     })
     .catch(err=>{
         res.send(err)
@@ -21,7 +29,7 @@ router.get('/:id/addsubject/', (req, res)=>{
         // console.log(student);
         model.Subject.findAll()
         .then(subjects=>{
-            res.render('student/addsubject', {data:student, subs: subjects})
+            res.render('student/addsubject', { data: student, subs: subjects, pageTitle: 'ADD SUBJECT TO STUDENT'})
         })
     })
     .catch(err=>{
@@ -53,7 +61,7 @@ router.get('/add', (req, res)=>{
             errorMessage = 'Alamat email sudah dipakai'
         }
     }
-    res.render('student/add', {sendError: errorMessage})
+    res.render('student/add', { sendError: errorMessage, pageTitle: 'ADD STUDENT'})
 })
 
 // ADD STUDENT (POST)
@@ -84,7 +92,7 @@ router.get('/edit/:id', (req, res) => {
     }
     model.Student.findById(req.params.id)
         .then(student => {
-            res.render('student/edit', { data: student, sendError: errorMessage })
+            res.render('student/edit', { data: student, sendError: errorMessage, pageTitle: 'EDIT STUDENT'})
         })
         .catch(err => {
             res.send(err)

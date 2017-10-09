@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include ./partial/head%>
+    </head>
+    <body>
+        <h2>Please Login </h2>
+        <form class="" action="/login" method="post">
+            <input type="text" name="username" placeholder="type username">
+            <input type="password" name="password" placeholder="type password">
+            <input type="submit" value="Login">
+        </form>
+        <br>
+        <br>
+        <h4 style="color: red"><% if(error_login === true) { %>
+            Error Login : username and password not match or username doesn't exist
+            <% } %>
+        </h4>
+        REGISTER
+        <a href="/register">here</a>
+    </body>
+
+</html>
