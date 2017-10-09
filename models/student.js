@@ -7,11 +7,12 @@ module.exports = function(sequelize, DataTypes) {
     email: 
     {
       type: DataTypes.STRING,
+      // unique:true,
       validate: 
       { 
         isEmail: true,
         isUnique: function (value, next) {
-          // console.log("======================masuk ke cek unik:", this._modelOptions.whereCollection.id);
+          console.log("======================masuk ke cek unik:", this._modelOptions.whereCollection.id);
           Student.find({
             where: {
               email: value, id: { [sequelize.Op.notIn]: [parseInt(this._modelOptions.whereCollection.id)]}

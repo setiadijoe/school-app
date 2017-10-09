@@ -72,11 +72,19 @@ router.post('/add', (req, res) => {
         email: req.body.email
     })
         .then(() => {
+            console.log('---------------------------------------ato ini');
             res.redirect('/student')
         })
         .catch(err => {
+            console.log('========================================masuk sini gak');
             // res.send(err.message)
-            res.redirect(`/student/add?error=${err.message}`)
+            let temp = {
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email
+            }
+            console.log(err);
+            // res.redirect(`/student/add?error=${err.message}`)
         })
 })
 
