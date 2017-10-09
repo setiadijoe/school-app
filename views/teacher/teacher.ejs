@@ -17,7 +17,7 @@
             <th>ACTION</th>
         </thead>
         <%data.forEach( r =>{%>
-        <tbody>
+        <tbody class="container-fluid bg-1 text-center">
             <td><%=r.id%></td>
             <td><%=r.getFullName()%></td>
             <td><%=r.first_name%></td>
@@ -32,4 +32,5 @@
         <%})%>
     </table>
 </body>
+<%- include ../partial/footer%>
 </html>
