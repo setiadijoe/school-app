@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
             attributes: ['id']
           })
             .then(user => {
-              console.log("User:", user._modelOptions.whereCollection.id);
+              // console.log("User:", user._modelOptions.whereCollection.id);
 
               if (user) {
                 // We found a user with this email address.

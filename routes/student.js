@@ -29,7 +29,7 @@ router.get('/:id/addsubject/', (req, res)=>{
         // console.log(student);
         model.Subject.findAll()
         .then(subjects=>{
-            res.render('student/addsubject', { data: student, subs: subjects, pageTitle: 'ADD SUBJECT TO STUDENT'})
+            res.render('student/addsubject', { data: student, subs: subjects, pageTitle: 'ADD SUBJECT TO STUDENT', session: req.session})
         })
     })
     .catch(err=>{
@@ -61,7 +61,7 @@ router.get('/add', (req, res)=>{
             errorMessage = 'Alamat email sudah dipakai'
         }
     }
-    res.render('student/add', { sendError: errorMessage, pageTitle: 'ADD STUDENT'})
+    res.render('student/add', { sendError: errorMessage, pageTitle: 'ADD STUDENT', session: req.session})
 })
 
 // ADD STUDENT (POST)

@@ -84,7 +84,7 @@ router.get('/:id/enrolledstudents', (req, res)=>{
                 if (index >= subject.Students.length){
                     // console.log(subject.Students[0].StudentSubject.StudentId);
                     // res.send(subject.Students)
-                    res.render('subject/enrollstudent', { data: subject, pageTitle: 'Subject Enrolled'})
+                    res.render('subject/enrollstudent', { data: subject, pageTitle: 'Subject Enrolled', session: req.session})
                 }
             })
         } else {
@@ -106,7 +106,7 @@ router.get('/:id/givescore', (req, res)=>{
     .then(scoring=>{
         // console.log(scoring);
         // res.send(scoring)
-        res.render('subject/givescore', { data: scoring, pageTitle: 'Adding Score'})
+        res.render('subject/givescore', { data: scoring, pageTitle: 'Adding Score', session: req.session})
     })
 })
 

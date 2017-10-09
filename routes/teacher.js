@@ -3,7 +3,7 @@ const model = require('../models')
 const router = express.Router()
 
 router.use((req, res, next) => {
-    if (req.session.hasLogin) {
+    if (req.session.hasLogin && req.session.user.role === 'headmaster') {
         next()
     } else {
         res.redirect('/')
@@ -55,9 +55,9 @@ router.get('/add', (req, res) => {
     // res.send()
     // console.log(req.query);
     if (req.query.hasOwnProperty('error')) {
-        if (req.query.error === 'Validation error: Cannot read property \'id\' of null,\nValidation error: Validation isEmail on email failed') {
+        if (req.query.error === 'Validation error: Validation isEmail on email failed') {
             errorMessage = 'Harap masukkan email yang benar'
-        } else if (req.query.error === 'Validation error: Cannot read property \'id\' of null'){
+        } else if (req.query.error === 'Validation error: Email already in used'){
                 errorMessage = 'Alamat email sudah dipakai'
         }
     }
